@@ -5,7 +5,7 @@ Lightweight Javascript DOM manipulation library
 
 Hermes creates the window.Hermes object. The documentation can be veiwed below:
 
-// DOM selector
+<b>DOM selector </b>
 <br>
 <code>
 Hermes.DOMtraveller('#myID'); //gets ID
