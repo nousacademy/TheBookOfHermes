@@ -115,13 +115,13 @@
             }
             return 'Hermes has travelled all your CSS files & can\'t find any styles associated with this selector.';
         }
-        Hermes.stealCookie = function(cname, cvalue, exdays) {
+        Hermes.stealCookie = function(cname, cvalue, exdays) { // set cookie
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             var expires = "expires=" + d.toUTCString();
             document.cookie = cname + "=" + cvalue + "; " + expires;
         }
-        Hermes.getCookieJar = function(cname) {
+        Hermes.getCookieJar = function(cname) { // get cookie
             var name = cname + "=";
             var ca = document.cookie.split(';');
             for (var i = 0; i < ca.length; i++) {
@@ -130,6 +130,13 @@
                 if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
             }
             return "Hermes can\'t find that cookie in the cookie jar!";
+        }
+
+        Hermes.checkCookieJar = function(cookieInJar) { // check for cookie
+            Hermes.getCookieJar(cookieInJar);
+        }
+        Hermes.eatCookie = function(cname) { // delete cookie
+            document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         }
         return Hermes;
     }
