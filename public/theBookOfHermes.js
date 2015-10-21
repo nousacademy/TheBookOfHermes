@@ -87,13 +87,13 @@
             parent.appendChild(el);
         }
         Hermes.addClass = function(el, className) {
-                if (el.classList) {
-                    el.classList.add(className);
-                } else {
-                    el.className += ' ' + className;
-                }
-
+            if (el.classList) {
+                el.classList.add(className);
+            } else {
+                el.className += ' ' + className;
             }
+
+        }
         Hermes.hasClass = function(element, classNameToTestFor) {
             var classNames = element.className.split(' ');
             for (var i = 0; i < classNames.length; i++) {
@@ -103,7 +103,34 @@
             }
             return false;
         }
-
+        Hermes.getCssStaticVals = function(selectorText, propertyName) { // ex: Hermes.getCssKeyValue('body', 'color')
+            // search backwards because the last match is more likely the right one
+            for (var s = document.styleSheets.length - 1; s >= 0; s--) {
+                var cssRules = document.styleSheets[s].cssRules ||
+                    document.styleSheets[s].rules || []; // IE support
+                for (var c = 0; c < cssRules.length; c++) {
+                    if (cssRules[c].selectorText === selectorText)
+                        return cssRules[c].style[propertyName];
+                }
+            }
+            return 'Hermes has travelled all your CSS files & can\'t find any styles associated with this selector.';
+        }
+        Hermes.stealCookie = function(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+        Hermes.getCookieJar = function(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "Hermes can\'t find that cookie in the cookie jar!";
+        }
         return Hermes;
     }
     if (typeof(Hermes) === 'undefined') {
