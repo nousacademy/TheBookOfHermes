@@ -16,12 +16,20 @@ Hermes.DOMtraveller('#myID'); //gets ID
 Hermes.DOMtraveller('.myClass'); => gets Class
 </code>
 <br>
-// for loop
+<b>for loop</b>
 <br>
 <code>
 Hermes.ouroboros(myArray, function(e){
-	console.log(e)</code> => prints out my array
-<code>
+	console.log(e)
+
 });
+</code>
+<br>
+<b>GET CALLS</b>
+<br>
+<code>
+Hermes.theft(url, function(data){
+	console.log(data)
+})
 </code>
 
