@@ -8,19 +8,20 @@ Hermes creates the window.Hermes object. The documentation can be veiwed below:
 // DOM selector
 <br>
 <code>
-Hermes.DOMtraveller('#myID'); => <div id="myID"></div>
+Hermes.DOMtraveller('#myID'); //gets ID
 </code> 
 <br> 
        or
 <code>
-Hermes.DOMtraveller('.myClass'); => <div class="myClass"></div>
+Hermes.DOMtraveller('.myClass'); => gets Class
 </code>
 <br>
 // for loop
 <br>
 <code>
 Hermes.ouroboros(myArray, function(e){
-	console.log(e) => prints out my array
+	console.log(e)</code> => prints out my array
+<code>
 });
 </code>
 
