@@ -138,6 +138,15 @@
         Hermes.eatCookie = function(cname) { // delete cookie
             document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         }
+        Hermes.meetsYourBrowser = function(name, value){ //set local storage
+            localStorage.setItem(name, value);
+        }
+        Hermes.remembersYou = function(name){ // get local storage
+            localStorage.getItem(name);
+        }
+        Hermes.forgotYou = function(name){ //delete local storage
+            localStorage.removeItem(name);
+        }
         return Hermes;
     }
     if (typeof(Hermes) === 'undefined') {
