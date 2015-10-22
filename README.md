@@ -116,16 +116,12 @@ Hermes.getCookieJar(cookieName);
 <br>
 <code>Hermes.checkCookieJar(checkForCookie);</code>
 <br>
-//test 
-
 <br>
 <b>Delete a cookie</b>
 <br>
 <code>
 Hermes.eatCookie(cookieToDelete);
 </code>
-<br>
-<b>Get CSS value of element, won't return inline styles</b>
 <br>
 <b>Hermes also has access to Local Storage</b>
 <br>
