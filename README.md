@@ -12,24 +12,24 @@ Hermes.DOMtraveller('#myID'); //gets ID
 </code> 
 <br> 
        or
+<br>
 <code>
-Hermes.DOMtraveller('.myClass'); => gets Class
+Hermes.DOMtraveller('.myClass'); //gets Class
 </code>
 <br>
-<b>for loop</b>
+<b>For Loop</b>
 <br>
 <code>
 Hermes.ouroboros(myArray, function(e){
 	console.log(e)
-
 });
 </code>
 <br>
-<b>GET CALLS</b>
+<b>GET CALL</b>
 <br>
 <code>
 Hermes.theft(url, function(data){
 	console.log(data)
-})
+});
 </code>
 
