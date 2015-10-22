@@ -19,6 +19,14 @@
                 circular(array[i])
             }
         };
+        Hermes.listen = function(elSelector, eventName, fn) {
+            var element = document.querySelector(elSelector);
+
+            element.addEventListener(eventName, function(event) {
+                var target = event.target;
+                        fn(el.parentNode);
+            });
+        }
         Hermes.theft = function(url, stolen) {
             var request = new XMLHttpRequest();
             request.open('GET', url, true);
@@ -138,13 +146,13 @@
         Hermes.eatCookie = function(cname) { // delete cookie
             document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         }
-        Hermes.meetsYourBrowser = function(name, value){ //set local storage
+        Hermes.meetsYourBrowser = function(name, value) { //set local storage
             localStorage.setItem(name, value);
         }
-        Hermes.remembersYou = function(name){ // get local storage
+        Hermes.remembersYou = function(name) { // get local storage
             localStorage.getItem(name);
         }
-        Hermes.forgotYou = function(name){ //delete local storage
+        Hermes.forgotYou = function(name) { //delete local storage
             localStorage.removeItem(name);
         }
         return Hermes;
