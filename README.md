@@ -25,11 +25,27 @@ Hermes.ouroboros(myArray, function(e){
 });
 </code>
 <br>
-<b>GET CALL</b>
+<b>GET Call</b>
 <br>
 <code>
 Hermes.theft(url, function(data){
 	console.log(data)
 });
+</code>
+<br>
+<b>POST JSON Data</b>
+<br>
+<code>
+Hermes.give = function(url, data) {
+	
+}
+</code>
+<br>
+<b>Effects</b>
+<br>
+This will fade your element in, just pass in your element as a paramater.
+<br>
+<code>
+Hermes.fadeIn(element);
 </code>
 
