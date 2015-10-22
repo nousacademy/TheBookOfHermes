@@ -3,7 +3,7 @@ Lightweight Javascript DOM manipulation library
 
 <img src='https://github.com/nousacademy/TheBookOfHermes/blob/master/public/bookcover.jpg'>
 
-Hermes creates the window.Hermes object. The documentation can be veiwed below:
+The Hermetic documentation can be veiwed below. Anyone is welcome to fork and extend this library
 
 <b>DOM selector </b>
 <br>
@@ -39,6 +39,8 @@ Hermes.theft(url, function(data){
 Hermes.give = function(url, data) {   }
 </code>
 <br>
+
+
 <b>Effects</b>
 <br>
 This will fade your element in, just pass in your element as a paramater.
@@ -46,6 +48,8 @@ This will fade your element in, just pass in your element as a paramater.
 <code>
 Hermes.fadeIn(element);
 </code>
+<br>
+<b>Basic DOM manipulation</b>
 <br>
 <b>Hide your element</b>
 <br>
@@ -73,8 +77,48 @@ Hermes.destroy(element);
 <br>
 <b>Add element to DOM</b>
 <br>
-Hermes.add(element);
+<code>Hermes.add(element);</code>
 <br>
+
+
+
+<b>Add a class to your element</b>
+<br>
+<code>
+Hermes.addClass(element);
+</code>
+<br>
+<b>Check if your element has a particular class</b>
+<br>
+<code>
+Hermes.hasClass(element, classNameToTest);
+</code>
+<br>
+<b>Get CSS value of element, won't return inline styles</b>
+<br>
+<code>
+Hermes.getCssStaticVals(element, propertyName);
+</code>
+<br>
+<b>Hermes has access to cookies</b>
+<br>
+<b>Set a Cookie</b>
+<br>
+<code>
+Hermes.stealCookie(cookieName, cookieValue, daysTillExp);
+</code>
+<br>
+<b>Get a Cookie</b>
+<br>
+<code>
+Hermes.getCookieJar(cookieName);
+</code>
+<br>
+<b>Check for a Cookie</b>
+<br>
+<code>Hermes.checkCookieJar(checkForCookie);</code>
+<br>
+
 
 
 
