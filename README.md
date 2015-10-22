@@ -21,7 +21,7 @@ Hermes.DOMtraveller('.myClass'); //gets Class
 <br>
 <code>
 Hermes.ouroboros(myArray, function(e){
-	console.log(e)
+	console.log(e);
 });
 </code>
 <br>
@@ -29,16 +29,14 @@ Hermes.ouroboros(myArray, function(e){
 <br>
 <code>
 Hermes.theft(url, function(data){
-	console.log(data)
+	console.log(data);
 });
 </code>
 <br>
 <b>POST JSON Data</b>
 <br>
 <code>
-Hermes.give = function(url, data) {
-	
-}
+Hermes.give = function(url, data) {   }
 </code>
 <br>
 <b>Effects</b>
@@ -48,4 +46,36 @@ This will fade your element in, just pass in your element as a paramater.
 <code>
 Hermes.fadeIn(element);
 </code>
+<br>
+<b>Hide your element</b>
+<br>
+<code>
+Hermes.conceal(element);
+</code>
+<br>
+<b>Show your element</b>
+<br>
+<code>
+Hermes.reveal(element);
+</code>
+<br>
+<b>Show & Hide your element</b>
+<br>
+<code>
+Hermes.toggle(element);
+</code>
+<br>
+<b>Remove element from DOM</b>
+<br>
+<code>
+Hermes.destroy(element);
+</code>
+<br>
+<b>Add element to DOM</b>
+<br>
+Hermes.add(element);
+<br>
+
+
+
 
