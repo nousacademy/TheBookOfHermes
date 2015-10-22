@@ -49,7 +49,8 @@ This will fade your element in, just pass in your element as a paramater.
 Hermes.fadeIn(element);
 </code>
 <br>
-<b>Basic DOM manipulation</b>
+<b>Basic DOM manipulation:</b>
+<br>
 <br>
 <b>Hide your element</b>
 <br>
@@ -79,9 +80,6 @@ Hermes.destroy(element);
 <br>
 <code>Hermes.add(element);</code>
 <br>
-
-
-
 <b>Add a class to your element</b>
 <br>
 <code>
@@ -118,6 +116,37 @@ Hermes.getCookieJar(cookieName);
 <br>
 <code>Hermes.checkCookieJar(checkForCookie);</code>
 <br>
+//test 
+
+<br>
+<b>Delete a cookie</b>
+<br>
+<code>
+Hermes.eatCookie(cookieToDelete);
+</code>
+<br>
+<b>Get CSS value of element, won't return inline styles</b>
+<br>
+<b>Hermes also has access to Local Storage</b>
+<br>
+<br>
+<b>Set Local Storage</b>
+<br>
+<code>
+Hermes.meetsYourBrowser(name, value);
+</code>
+<br>
+<b>Get Local Storage</b>
+<br>
+<code>
+Hermes.remembersYou(localstorageKeyName);
+</code>
+<br>
+<b>Delete Local Storage Key</b>
+<br>
+<code>
+Hermes.forgotYou(localStorageName);
+</code>
 
 
 
