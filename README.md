@@ -32,7 +32,7 @@ Hermes.ouroboros(myArray, function(e){
 Hermes can listen to any type of Event - "mouseover", "click", "mouseout", "mousemove"
 <br>
 <code>
-Hermes.onClick(selector, eventName, function(e){console.log(e)})
+Hermes.listen(selector, eventName, function(e){console.log(e)})
 </code>
 <br>
 
