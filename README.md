@@ -1,7 +1,7 @@
 # The Book Of Hermes
 Lightweight Javascript DOM manipulation library
 
-<img src='https://github.com/nousacademy/TheBookOfHermes/blob/master/public/bookcover.jpg'>
+<img src='https://github.com/nousacademy/TheBookOfHermes/blob/master/hermeticSrc/bookcover.jpg'>
 
 The Hermetic documentation can be veiwed below. Anyone is welcome to fork and extend this library
 
