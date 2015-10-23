@@ -21,8 +21,8 @@ Hermes.DOMtraveller('.myClass'); //gets Class
 <b>For Loop</b>
 <br>
 <code>
-Hermes.ouroboros(myArray, function(e){
-	console.log(e);
+Hermes.ouroboros(myArray, function(cb){
+	console.log(cb);
 });
 </code>
 <br>
