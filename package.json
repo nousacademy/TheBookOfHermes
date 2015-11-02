@@ -1,0 +1,27 @@
+{
+  "name": "The-Book-Of-Hermes",
+  "version": "0.0.1",
+  "description": "Lightweight Javascript DOM manipulation library.",
+  "author": "Hermes",
+  "contributors": [{
+  "name": "The Architect",
+  "email": "thearchitect@nousacademy.com"
+}],
+  "main": "hermeticSrc/TheBookOfHermes.min.js",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/nousacademy/TheBookOfHermes"
+},
+  "bugs": {
+  "url": "https://github.com/nousacademy/TheBookOfHermes/issues"
+},
+  "hermes": [
+  "no",
+  "jquery",
+  "lightweight",
+  "javascript",
+  "library"
+],
+  "private": false,
+  "license": "The ancient art of Imitation"
+}
