@@ -1,1 +1,7 @@
 node_modules/
+hermeticSrc/index.html
+hermeticSrc/npm-debug.log
+hermeticSrc/data.json
+server.js
+pakmanaged.js
+.npmignore

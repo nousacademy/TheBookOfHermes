@@ -3,7 +3,7 @@ Lightweight Javascript DOM manipulation library
 
 <img src='https://raw.githubusercontent.com/nousacademy/TheBookOfHermes/master/hermeticSrc/bookcover.jpg'>
 
-The Hermetic documentation can be veiwed below. Anyone is welcome to fork and extend this library
+The Hermetic documentation can be veiwed below. Anyone is welcome to fork and extend this library, or if you have any feature requests just submit an issue!
 
 <b>DOM selector </b>
 <br>

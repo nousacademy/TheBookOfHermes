@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         uglify: {
             my_target: {
                 files: {
-                    'hermeticSrc/theBookOfHermes.min.js': ['hermeticSrc/theBookOfHermes.js']
+                    'theBookOfHermes.min.js': ['theBookOfHermes.js']
                 }
             }
         }
