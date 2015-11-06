@@ -5,6 +5,12 @@ Lightweight Javascript DOM manipulation library
 
 The Hermetic documentation can be veiwed below. Anyone is welcome to fork and extend this library, or if you have any feature requests just submit an issue!
 
+<br>
+
+To add this sacred book to your library simply clone this REPO or you can use Bower: <code>bower install the-book-of-hermes</code>
+
+<br>
+
 <b>DOM selector </b>
 <br>
 <code>

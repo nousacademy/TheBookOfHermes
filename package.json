@@ -4,7 +4,7 @@
   "version": "0.0.24",
   "description": "Lightweight Javascript DOM manipulation library.",
   "author": "The Architect <thearchitect@nousacademy.com> (https://nousacademy.github.io/)",
-  "main": "pakmanaged.js",
+  "main": "CorpusHermeticum/TheBookOfHermes.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
