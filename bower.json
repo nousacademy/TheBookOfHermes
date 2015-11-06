@@ -1,7 +1,7 @@
 {
   "name": "the-book-of-hermes",
   "description": "Lightweight Javascript DOM manipulation library.",
-  "main": "theBookOfHermes.min.js",
+  "main": "CorpusHermeticum/theBookOfHermes.min.js",
   "authors": [
     "The Architect <thearchitect@nousacademy.com> (https://nousacademy.github.io/)"
   ],
@@ -20,7 +20,6 @@
     "globals"
   ],
   "ignore": [
-    "**/.*",
     "node_modules"
   ]
 }
