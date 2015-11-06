@@ -1,0 +1,26 @@
+{
+  "name": "the-book-of-hermes",
+  "description": "Lightweight Javascript DOM manipulation library.",
+  "main": "theBookOfHermes.min.js",
+  "authors": [
+    "The Architect <thearchitect@nousacademy.com> (https://nousacademy.github.io/)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "hermes",
+    "no",
+    "jquery",
+    "lightweight",
+    "javascript",
+    "browser",
+    "library"
+  ],
+  "homepage": "https://github.com/nousacademy/TheBookOfHermes",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ]
+}
