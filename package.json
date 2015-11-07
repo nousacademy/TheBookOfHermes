@@ -1,10 +1,10 @@
 {
   "name": "the-book-of-hermes",
   "title": "The Book of Hermes",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Lightweight Javascript DOM manipulation library.",
   "author": "The Architect <thearchitect@nousacademy.com> (https://nousacademy.github.io/)",
-  "main": "CorpusHermeticum/TheBookOfHermes.min.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

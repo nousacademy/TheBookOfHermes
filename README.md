@@ -7,11 +7,13 @@ The Hermetic documentation can be veiwed below. Anyone is welcome to fork and ex
 
 <br>
 
-To add this sacred book to your library simply clone this REPO or you can use Bower (recommended):
+To add this sacred book to your library simply clone this REPO or you can use Bower (recommended) or NPM (also recommended):
 <br>
 <br>
  <code>bower install the-book-of-hermes</code>
 
+<br>
+<code>npm install the-book-of-hermes</code>
 <br>
 
 <b>DOM selector </b>
