@@ -13,19 +13,49 @@
 
     function theAll() {
         var Hermes = {};
+        Hermes.DOMtraveller = function(selector, context) {
+            context = context || document;
+            var el = context.querySelectorAll(selector);
+            return Array.prototype.slice.call(el);
+        }
         Hermes.ouroboros = function(array, cb) {
             var i;
             for (i = 0; i < array.length; i++) {
                 cb(array[i])
             }
         };
-        Hermes.listen = function(elSelector, eventName, fn) {
-            var element = document.querySelector(elSelector);
+        Hermes.listen = function(element, eventName, fn) {
+            var i;
+            // console.log(fn)
+            if (eventName) {
+                    element.addEventListener(eventName, function(event) {
+                        var target = event.target;
+                        fn(target)
+                    }, false);
 
-            element.addEventListener(eventName, function(event) {
-                var target = event.target;
-                        fn(el.parentNode);
-            });
+            }
+        };
+        Hermes.write = function(textString, elementToWriteOn) {
+            var text = document.createTextNode(textString);
+            elementToWriteOn.appendChild(text);
+
+        }
+        Hermes.slapOn = function(newElement, elementToAppend) {
+            if(elementToAppend !== undefined){
+               elementToAppend.innerHTML += newElement; 
+           }else{
+            return 'Hermes can\'t find an element to add your stuff to!' 
+           }
+        }
+        Hermes.add = function(newElement, elementToAppend, newElClass) {
+            var newElement = document.createElement(newElement);
+            newElement.className = newElClass;
+
+            if (elementToAppend === undefined) {
+                console.log('You haven\'t selected an <element> for me to add to! - Hermes')
+            } else {
+                elementToAppend.appendChild(newElement);
+            }
         }
         Hermes.theft = function(url, stolen) {
             var request = new XMLHttpRequest();
@@ -53,12 +83,7 @@
             request.open('POST', url, true);
             request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
             request.send(data);
-        }
-        Hermes.DOMtraveller = function(selector, context) {
-            context = context || document;
-            var el = context.querySelectorAll(selector);
-            return Array.prototype.slice.call(el);
-        }
+        }       
         Hermes.fadeIn = function(el) {
             el.style.opacity = 0;
 
@@ -87,12 +112,10 @@
                 el.style.display = '';
             }
         }
-        Hermes.destroy = function(el) {
-            el.parentNode.removeChild(el);
+        Hermes.destroy = function(elem, c) {
+            elem.classList.remove( c );
+            // el.parentNode.removeChild(el);
             return 'Hermes has destroyed your node!'
-        }
-        Hermes.add = function(el) {
-            parent.appendChild(el);
         }
         Hermes.addClass = function(el, className) {
             if (el.classList) {
