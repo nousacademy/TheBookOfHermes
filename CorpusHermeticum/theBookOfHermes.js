@@ -26,7 +26,6 @@
         };
         Hermes.listen = function(element, eventName, fn) {
             var i;
-            // console.log(fn)
             if (eventName) {
                     element.addEventListener(eventName, function(event) {
                         var target = event.target;
@@ -96,7 +95,6 @@
                     (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
                 }
             };
-
             tick();
         }
         Hermes.conceal = function(el) {
@@ -113,8 +111,7 @@
             }
         }
         Hermes.destroy = function(elem, c) {
-            elem.classList.remove( c );
-            // el.parentNode.removeChild(el);
+            elem.classList.remove(c);
             return 'Hermes has destroyed your node!'
         }
         Hermes.addClass = function(el, className) {
@@ -123,7 +120,6 @@
             } else {
                 el.className += ' ' + className;
             }
-
         }
         Hermes.hasClass = function(element, classNameToTestFor) {
             var classNames = element.className.split(' ');

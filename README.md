@@ -100,13 +100,13 @@ Hermes.toggle(element);
 <b>Remove element from DOM</b>
 <br>
 <code>
-Hermes.destroy(element);
+Hermes.destroy(Hermes.DOMtraveller('.elementToDestroy'), 'elementsClass');
 </code>
 <br>
 
 <b>Add element to DOM</b>
 <br>
-<code>Hermes.add(element);</code>
+<code>Hermes.add('<div>Hermetic Dyanmic Element</div>', Hermes.DOMtraveller('.elementToAppend'), 'yourDynamicElementsClass');</code>
 <br>
 
 <b>Add a class to your element</b>
@@ -115,6 +115,10 @@ Hermes.destroy(element);
 Hermes.addClass(element);
 </code>
 <br>
+
+<b>Inject HTML to DOM</b>
+<br>
+<code>Hermes.slapOn('<div>Hermetic Dyanmic Element</div>', Hermes.DOMtraveller('.elementToAppend'))</code>
 
 <b>Check if your element has a particular class</b>
 <br>
