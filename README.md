@@ -106,7 +106,7 @@ Hermes.destroy(Hermes.DOMtraveller('.elementToDestroy'), 'elementsClass');
 
 <b>Add element to DOM</b>
 <br>
-<code>Hermes.add('<div>Hermetic Dyanmic Element</div>', Hermes.DOMtraveller('.elementToAppend'), 'yourDynamicElementsClass');</code>
+<code>Hermes.add('< div > Hermetic Dyanmic Element </ div >', Hermes.DOMtraveller('.elementToAppend'), 'yourDynamicElementsClass');</code>
 <br>
 
 <b>Add a class to your element</b>
