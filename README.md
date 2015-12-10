@@ -118,7 +118,7 @@ Hermes.addClass(element);
 
 <b>Inject HTML to DOM</b>
 <br>
-<code>Hermes.slapOn('<div>Hermetic Dyanmic Element</div>', Hermes.DOMtraveller('.elementToAppend'))</code>
+<code>Hermes.slapOn('< div >Hermetic Dyanmic Element< /div >', Hermes.DOMtraveller('.elementToAppend'))</code>
 
 <b>Check if your element has a particular class</b>
 <br>
