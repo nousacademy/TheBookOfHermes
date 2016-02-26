@@ -1,182 +1,181 @@
 /*
  * The Book of Hermes
- * - The lightest JS book you should have in your library
+ * - The lightest JS book to have in your library
  *
  * Copyright Nous Academy and is maintained by Hermes
  * The ancient Hermetic art of imitation, is released under the MIT license
  * https://github.com/nousacademy/TheBookOfHermes
  *
  * Date: Eternity
+ *
+ *  "To become the best you must imitate the best." - Hermes
+ *
  */
-(function(window) {
-    'use strict'
 
-    function theAll() {
-        var Hermes = {};
-        Hermes.DOMtraveller = function(selector, context) {
-            context = context || document;
-            var el = context.querySelectorAll(selector);
-            return Array.prototype.slice.call(el);
-        }
-        Hermes.ouroboros = function(array, cb) {
-            var i;
-            for (i = 0; i < array.length; i++) {
-                cb(array[i])
+(function(theAll) {
+
+    var Hermes = function(selector, context) {
+        return new Hermes.invoke(selector, context);
+    }
+
+
+    // Hermetic methods
+    Hermes.prototype = {
+        listen: function(eventName, fn) {
+            for (var i = 0; i < this.length; i++) {
+                this[i].addEventListener(eventName, function(event) {
+                    var target = event.target;
+                    fn(target)
+                }, false);
             }
-        };
-        Hermes.listen = function(element, eventName, fn) {
-            var i;
-            if (eventName) {
-                    element.addEventListener(eventName, function(event) {
-                        var target = event.target;
-                        fn(target)
-                    }, false);
-
+            return this;
+        },
+        vanquish: function() {
+            for (var i = 0; i < this.length; i++) {
+                this[i].parentNode.removeChild(this[i]);
             }
-        };
-        Hermes.write = function(textString, elementToWriteOn) {
-            var text = document.createTextNode(textString);
-            elementToWriteOn.appendChild(text);
-
-        }
-        Hermes.slapOn = function(newElement, elementToAppend) {
-            if(elementToAppend !== undefined){
-               elementToAppend.innerHTML += newElement; 
-           }else{
-            return 'Hermes can\'t find an element to add your stuff to!' 
-           }
-        }
-        Hermes.add = function(newElement, elementToAppend, newElClass) {
-            var newElement = document.createElement(newElement);
-            newElement.className = newElClass;
-
-            if (elementToAppend === undefined) {
-                console.log('You haven\'t selected an <element> for me to add to! - Hermes')
-            } else {
-                elementToAppend.appendChild(newElement);
+            return this;
+        },
+        conceal: function() {
+            for (var i = 0; i < this.length; i++) {
+                this[i].style.display = 'none';
             }
-        }
-        Hermes.theft = function(url, stolen) {
-            var request = new XMLHttpRequest();
-            request.open('GET', url, true);
-
-            request.onload = function() {
-                if (request.status >= 200 && request.status < 400) {
-                    // Success!
-                    var data = JSON.parse(request.responseText);
-
-                    stolen(data);
+            return this;
+        },
+        reveal: function() {
+            for (var i = 0; i < this.length; i++) {
+                this[i].style.display = 'block';
+            }
+            return this;
+        },
+        write: function(textString) {
+            for (var i = 0; i < this.length; i++) {
+                var text = document.createTextNode(textString);
+                this[i].appendChild(text);
+            }
+            return this;
+        },
+        switch: function() {
+            for (var i = 0; i < this.length; i++) {
+                var el = this[i];
+                if (el.style.display !== 'none') {
+                    el.style.display = 'none';
                 } else {
-                    console.log('Hermes couldn\'t steal that data for you.')
-
+                    el.style.display = '';
                 }
-            };
-            request.onerror = function(caught) {
-                stolen(caught);
-            };
-            request.send();
-        }
-        Hermes.give = function(url, data) {
-            var request = new XMLHttpRequest();
-            var data = JSON.stringify(data);
-            request.open('POST', url, true);
-            request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-            request.send(data);
-        }       
-        Hermes.fadeIn = function(el) {
-            el.style.opacity = 0;
-
-            var last = new Date();
-            var tick = function() {
-                el.style.opacity = +el.style.opacity + (new Date() - last) / 400;
-                last = new Date();
-
-                if (el.style.opacity < 1) {
-                    (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
-                }
-            };
-            tick();
-        }
-        Hermes.conceal = function(el) {
-            el.style.display = 'none';
-        }
-        Hermes.reveal = function(el) {
-            el.style.display = '';
-        }
-        Hermes.toggle = function(el) {
-            if (el.style.display !== 'none') {
-                el.style.display = 'none';
-            } else {
-                el.style.display = '';
             }
-        }
-        Hermes.destroy = function(elem, c) {
-            elem.classList.remove(c);
-            return 'Hermes has destroyed your node!'
-        }
-        Hermes.addClass = function(el, className) {
-            if (el.classList) {
-                el.classList.add(className);
-            } else {
-                el.className += ' ' + className;
+            return this;
+        },
+        add: function(elementType, elementClass) {
+            var newElement = document.createElement(elementType);
+            newElement.className = elementClass;
+            for (var i = 0; i < this.length; i++) {
+                this[i].appendChild(newElement);
             }
-        }
-        Hermes.hasClass = function(element, classNameToTestFor) {
-            var classNames = element.className.split(' ');
-            for (var i = 0; i < classNames.length; i++) {
-                if (classNames[i].toLowerCase() == classNameToTestFor.toLowerCase()) {
+            return this;
+        },
+        hasClass: function(myClass) {
+             for (var i = 0; i < this.length; i++) {
+              var classNames = this[i].className.split(/\s+/);        
+                if (classNames.indexOf(myClass) > -1) {
                     return true;
+                    break;
                 }
             }
-            return false;
-        }
-        Hermes.getCssStaticVals = function(selectorText, propertyName) { // ex: Hermes.getCssKeyValue('body', 'color')
-            // search backwards because the last match is more likely the right one
-            for (var s = document.styleSheets.length - 1; s >= 0; s--) {
-                var cssRules = document.styleSheets[s].cssRules ||
-                    document.styleSheets[s].rules || []; // IE support
-                for (var c = 0; c < cssRules.length; c++) {
-                    if (cssRules[c].selectorText === selectorText)
-                        return cssRules[c].style[propertyName];
-                }
-            }
-            return 'Hermes has travelled all your CSS files & can\'t find any styles associated with this selector.';
-        }
-        Hermes.stealCookie = function(cname, cvalue, exdays) { // set cookie
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + "; " + expires;
-        }
-        Hermes.getCookieJar = function(cname) { // get cookie
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1);
-                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-            }
-            return "Hermes can\'t find that cookie in the cookie jar!";
         }
 
-        Hermes.checkCookieJar = function(cookieInJar) { // check for cookie
-            Hermes.getCookieJar(cookieInJar);
+    };
+
+
+
+    // Invoke Hermes
+    Hermes.invoke = function(selector, context) {
+
+        var self = this;
+        self.context = context || document;
+        self.selector = selector || '';
+        self.spellVers = '1.0';
+        var nodes = self.context.querySelectorAll(self.selector);
+
+        for (var i = 0; i < nodes.length; i++) {
+            this[i] = nodes[i];
         }
-        Hermes.eatCookie = function(cname) { // delete cookie
-            document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        }
-        Hermes.meetsYourBrowser = function(name, value) { //set local storage
-            localStorage.setItem(name, value);
-        }
-        Hermes.remembersYou = function(name) { // get local storage
-            localStorage.getItem(name);
-        }
-        Hermes.forgotYou = function(name) { //delete local storage
-            localStorage.removeItem(name);
-        }
-        return Hermes;
+
+        this.length = nodes.length;
+        return this;
     }
-    if (typeof(Hermes) === 'undefined') {
-        window.Hermes = theAll();
+
+    // Hermetic plugins - add your own by calling h.spell.myPlugin
+    Hermes.theft = function(url, stolen) {
+        var request = new XMLHttpRequest();
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                var data = JSON.parse(request.responseText);
+                stolen(data);
+            } else {
+                throw 'Hermes couldn\'t steal that data for you.'
+            }
+        }
+        request.open('GET', url, true);
+        request.send(null);
     }
-})(window);
+
+    Hermes.give = function(url, data) {
+        var request = new XMLHttpRequest();
+        var data = JSON.stringify(data);
+        request.open('POST', url, true);
+        request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        request.send(data);
+    }
+
+    Hermes.ouroboros = function(array, cb) {
+        var i;
+        for (i = 0; i < array.length; i++) {
+            cb(array[i])
+        }
+    };
+
+    Hermes.getCookieJar = function(cname) { // get cookie
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "Hermes can\'t find that cookie in the cookie jar!";
+    }
+
+    Hermes.stealCookie = function(cname, cvalue, exdays) { // set cookie
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    Hermes.checkCookieJar = function(cookieInJar) { // check for cookie
+        Hermes.getCookieJar(cookieInJar);
+    }
+
+    Hermes.eatCookie = function(cname) { // delete cookie
+        document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+
+    Hermes.meetsYourBrowser = function(name, value) { //set local storage
+        localStorage.setItem(name, value);
+    }
+
+    Hermes.remembersYou = function(name) { // get local storage
+        localStorage.getItem(name);
+    }
+    Hermes.forgotYou = function(name) { //delete local storage
+        localStorage.removeItem(name);
+    }
+
+    Hermes.invoke.prototype = Hermes.prototype;
+
+    theAll.Hermes = theAll.h = Hermes;
+
+
+
+}(window))
