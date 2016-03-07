@@ -75,13 +75,31 @@
             return this;
         },
         hasClass: function(myClass) {
-             for (var i = 0; i < this.length; i++) {
-              var classNames = this[i].className.split(/\s+/);        
+            for (var i = 0; i < this.length; i++) {
+                var classNames = this[i].className.split(/\s+/);
                 if (classNames.indexOf(myClass) > -1) {
                     return true;
                     break;
                 }
             }
+        },
+        addClass: function(classToAdd) {
+            for (var i = 0; i < this.length; i++) {
+                this[i].className += " " + classToAdd;
+            }
+            return this;
+        },
+        removeClass: function(classToRemove) {
+            for (var i = 0; i < this.length; i++) {
+                this[i].className = this[i].className.replace(new RegExp(classToRemove), '');
+            }
+            return this;
+        },
+        replaceClass: function(classToRemove, classToReplaceWith) {
+            for (var i = 0; i < this.length; i++) {
+                this[i].className = this[i].className.replace(new RegExp(classToRemove), classToReplaceWith);
+            }
+            return this;
         }
 
     };
