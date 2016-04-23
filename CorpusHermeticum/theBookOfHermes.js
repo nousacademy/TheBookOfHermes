@@ -21,11 +21,11 @@
 
     // Hermetic methods
     Hermes.prototype = {
-        listen: function(eventName, fn) {
+        listen: function(eventName, cb) {
             for (var i = 0; i < this.length; i++) {
                 this[i].addEventListener(eventName, function(event) {
-                    var target = event.target;
-                    fn(target)
+                    var target = event;
+                    cb(target)
                 }, false);
             }
             return this;
@@ -45,6 +45,23 @@
         reveal: function() {
             for (var i = 0; i < this.length; i++) {
                 this[i].style.display = 'block';
+            }
+            return this;
+        },
+        readText: function() {
+            var text = '';
+            for (var i = 0; i < this.length; i++) {
+                if (this[i].nodeName === 'INPUT') {
+                    var text = this[i].value;
+                } else {
+                    var text = this[i].textContent
+                }
+            }
+            return text;
+        },
+        eraseText: function() {
+            for (var i = 0; i < this.length; i++) {
+                this[i].value = '';
             }
             return this;
         },
@@ -73,6 +90,12 @@
             }
             return this;
         },
+        setCSS: function(cssString) {
+            for (var i = 0; i < this.length; i++) {
+                 this[i].style.cssText = cssString;
+            }
+            return this;
+        },
         add: function(elementType, elementClass) {
             var newElement = document.createElement(elementType);
             newElement.className = elementClass;
@@ -86,7 +109,6 @@
                 var classNames = this[i].className.split(/\s+/);
                 if (classNames.indexOf(myClass) > -1) {
                     return true;
-                    break;
                 }
             }
         },
@@ -108,24 +130,14 @@
             }
             return this;
         },
-        //h('div').manifestAll('<div style="color:red">YOOOOOOO!!!!!!</div>')
         manifestAll: function(html) {
             for (var i = 0; i < this.length; i++) {
                 this[i].innerHTML = html;
             }
             return this;
         },
-        // uasge - h('div').craftUnitInAll()
-        multiplyNodes: function() { // html, props
-            var data = [{
-                "node": "div",
-                "text": "Hi there",
-                "class": "firstClass"
-            }, {
-                "node": "span",
-                "text": "Hello!",
-                "class": "secondClass"
-            }]
+        multiplyNodes: function(data) { // html, props
+
             var nodeArr = [];
             for (var i = 0; i < data.length; i++) {
 
@@ -133,100 +145,39 @@
                 var el = document.createElement(html.node);
                 nodeArr.push(el)
                 console.log(el)
-                for (var key in html){
-                     // console.log(html[key]);
+                for (var key in html) {
+                    // console.log(html[key]);
 
-                            if (key === "text") {
-                                var text = document.createTextNode(html[key]);
-                                el.appendChild(text)
-                                // console.log(text)
-                            }
-                            if(key !== "node" && key !== "text"){
-                                el.setAttribute(key, html[key]);
-                            }
+                    if (key === "text") {
+                        var text = document.createTextNode(html[key]);
+                        el.appendChild(text)
+                            // console.log(text)
+                    }
+                    if (key !== "node" && key !== "text") {
+                        el.setAttribute(key, html[key]);
+                    }
 
-                            if(i === 0){
-                                this[i].appendChild(el)
-                                console.log('on 0 iteration')
-                            }
-                            if (i > 0) {
-                                // console.log(i)
-                                debugger;
-                                     nodeArr.slice(-2)[0].appendChild(el)
-                                    // console.log(nodeArr.slice(-1)[0] )
-                                // el.appendChild(el)
-                                console.log(nodeArr)
+                    if (i === 0) {
+                        this[i].appendChild(el)
+                            // console.log('on 0 iteration')
+                    }
+                    if (i > 0) {
+                        // console.log(i)
+                        debugger;
+                        nodeArr.slice(-2)[0].appendChild(el)
+                            // console.log(nodeArr.slice(-1)[0] )
+                        console.log(nodeArr)
 
-                            }
+                    }
 
                 }
 
 
             }
-
-            // var nodeArr = [];
-            // for (var key in data) {
-
-            //     var appendThis = this[key];
-
-            //     var arr = data[key];
-
-            //     for (var i = 0; i < arr.length; i++) {
-
-            //         var obj = arr[i];
-            //         // console.log(obj) // need this one to get previous item and append it
-
-            //         for (var prop in obj) {
-            //             // debugger;
-
-
-            //             // console.log(a)
-            //             if (obj.hasOwnProperty(prop)) {
-            //                 // console.log(prop + " = " + obj[prop]);
-            //                 // console.log(prop)
-
-
-            //                 if (prop === "node") {
-            //                     var node = document.createElement(obj[prop]);
-            //                      nodeArr.push(node)
-            //                         // console.log(nodeArr)
-            //                 }
-            //                 if (prop === "text") {
-            //                     var text = document.createTextNode(obj[prop]);
-            //                     node.appendChild(text)
-            //                     // console.log(text)
-            //                 }
-            //                 if(prop !== "node" && prop !== "text"){
-            //                     node.setAttribute(prop, obj[prop]);
-            //                 }
-
-            //                 if(i === 0){
-            //                     this[i].appendChild(node)
-            //                     // console.log('on 0 iteration')
-            //                 }
-            //                 if (i > 0) {
-            //                 console.log(i)
-            //                       nodeArr.slice(-1)[0].appendChild(node)
-            //                       // console.log(nodeArr.slice(-1)[0] )
-            //                       // console.log(node.childNodes)
-
-            //                 }
-
-
-
-
-            //             }
-            //         }
-            //     }
-            // }
-
-
-
-
+            return this;
         }
 
     };
-
 
 
     // Invoke Hermes
@@ -235,7 +186,7 @@
         var self = this;
         self.context = context || document;
         self.selector = selector || '';
-        self.spellVers = '1.0';
+        self.spellVers = '0.6';
         var nodes = self.context.querySelectorAll(self.selector);
 
         for (var i = 0; i < nodes.length; i++) {
@@ -265,11 +216,16 @@
         // media queries made simple
     }
 
-    Hermes.give = function(url, data) {
+    Hermes.give = function(url, data, cb) {
         var request = new XMLHttpRequest();
         var data = JSON.stringify(data);
         request.open('POST', url, true);
         request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200) {
+                cb(request.responseText);
+            }
+        }
         request.send(data);
     }
 
