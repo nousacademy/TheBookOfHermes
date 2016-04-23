@@ -55,6 +55,13 @@
             }
             return this;
         },
+        reWrite: function(textString) {
+            var rewrite = '';
+            for (var i = 0; i < this.length; i++) {
+                var rewrite = this[0].childNodes[0].data = textString;
+            }
+            return rewrite;
+        },
         switch: function() {
             for (var i = 0; i < this.length; i++) {
                 var el = this[i];
@@ -100,6 +107,122 @@
                 this[i].className = this[i].className.replace(new RegExp(classToRemove), classToReplaceWith);
             }
             return this;
+        },
+        //h('div').manifestAll('<div style="color:red">YOOOOOOO!!!!!!</div>')
+        manifestAll: function(html) {
+            for (var i = 0; i < this.length; i++) {
+                this[i].innerHTML = html;
+            }
+            return this;
+        },
+        // uasge - h('div').craftUnitInAll()
+        multiplyNodes: function() { // html, props
+            var data = [{
+                "node": "div",
+                "text": "Hi there",
+                "class": "firstClass"
+            }, {
+                "node": "span",
+                "text": "Hello!",
+                "class": "secondClass"
+            }]
+            var nodeArr = [];
+            for (var i = 0; i < data.length; i++) {
+
+                var html = data[i];
+                var el = document.createElement(html.node);
+                nodeArr.push(el)
+                console.log(el)
+                for (var key in html){
+                     // console.log(html[key]);
+
+                            if (key === "text") {
+                                var text = document.createTextNode(html[key]);
+                                el.appendChild(text)
+                                // console.log(text)
+                            }
+                            if(key !== "node" && key !== "text"){
+                                el.setAttribute(key, html[key]);
+                            }
+
+                            if(i === 0){
+                                this[i].appendChild(el)
+                                console.log('on 0 iteration')
+                            }
+                            if (i > 0) {
+                                // console.log(i)
+                                debugger;
+                                     nodeArr.slice(-2)[0].appendChild(el)
+                                    // console.log(nodeArr.slice(-1)[0] )
+                                // el.appendChild(el)
+                                console.log(nodeArr)
+
+                            }
+
+                }
+
+
+            }
+
+            // var nodeArr = [];
+            // for (var key in data) {
+
+            //     var appendThis = this[key];
+
+            //     var arr = data[key];
+
+            //     for (var i = 0; i < arr.length; i++) {
+
+            //         var obj = arr[i];
+            //         // console.log(obj) // need this one to get previous item and append it
+
+            //         for (var prop in obj) {
+            //             // debugger;
+
+
+            //             // console.log(a)
+            //             if (obj.hasOwnProperty(prop)) {
+            //                 // console.log(prop + " = " + obj[prop]);
+            //                 // console.log(prop)
+
+
+            //                 if (prop === "node") {
+            //                     var node = document.createElement(obj[prop]);
+            //                      nodeArr.push(node)
+            //                         // console.log(nodeArr)
+            //                 }
+            //                 if (prop === "text") {
+            //                     var text = document.createTextNode(obj[prop]);
+            //                     node.appendChild(text)
+            //                     // console.log(text)
+            //                 }
+            //                 if(prop !== "node" && prop !== "text"){
+            //                     node.setAttribute(prop, obj[prop]);
+            //                 }
+
+            //                 if(i === 0){
+            //                     this[i].appendChild(node)
+            //                     // console.log('on 0 iteration')
+            //                 }
+            //                 if (i > 0) {
+            //                 console.log(i)
+            //                       nodeArr.slice(-1)[0].appendChild(node)
+            //                       // console.log(nodeArr.slice(-1)[0] )
+            //                       // console.log(node.childNodes)
+
+            //                 }
+
+
+
+
+            //             }
+            //         }
+            //     }
+            // }
+
+
+
+
         }
 
     };
@@ -136,6 +259,10 @@
         }
         request.open('GET', url, true);
         request.send(null);
+    }
+
+    Hermes.aware = function() {
+        // media queries made simple
     }
 
     Hermes.give = function(url, data) {

@@ -1,7 +1,7 @@
 {
   "name": "the-book-of-hermes",
   "title": "The Book of Hermes",
-  "version": "0.0.30",
+  "version": "0.0.50",
   "description": "Lightweight Javascript DOM manipulation library.",
   "author": "The Architect <thearchitect@nousacademy.com> (https://nousacademy.github.io/)",
   "main": "index.js",
